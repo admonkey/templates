@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/interior.xsl" title="Interior Page" extension="php"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd">
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<headcode></headcode> <!-- before closing head tag -->
+	<bodycode></bodycode> <!-- after opening body tag -->
+	<footcode></footcode> <!-- before closing body tag -->
+
+	<parameter name="pagetype">interior</parameter>
+
+	<ouc:properties label="config">
+		<parameter section="Banner Properties" name="banner-region" type="radio" group="everyone" prompt="Enable Banner Section" alt="">
+			<option value="on" selected="true">On</option>
+			<option value="off" selected="false">Off</option>
+		</parameter>
+		<parameter name="banner-type" type="select" group="everyone" prompt="Type of banner" alt="Choose the type of banner to be displayed.">
+			<option value="image" selected="true">Static Image</option>
+			<option value="slider" selected="false">Image Slider</option>
+		</parameter>
+		<parameter name="banner-location" type="radio" group="everyone" prompt="Banner Location" alt="Choose a global banner, or a page specific banner.">
+			<option value="global" selected="true">Global</option>
+			<option value="page" selected="false">Page Specific</option>
+		</parameter>
+		<parameter name="banner-image-type" type="select" group="everyone" prompt="Type of image banner" alt="Choose the type of banner to be displayed.">
+			<option value="tall" selected="false">Tall Banner</option>
+			<option value="short" selected="true">Short Banner</option>
+		</parameter>
+		<parameter section="Heading Properties" name="heading-display" type="radio" group="everyone" prompt="Page Heading Display" alt="Choose to display the page heading.">
+			<option value="on" selected="true">On</option>
+			<option value="off" selected="false">Off</option>
+		</parameter>
+		<parameter name="heading" group="Everyone" prompt="Page Heading" alt="Page title by default."><!--%echo var="title" --></parameter>
+		<parameter section="General Properties" name="breadcrumb" type="text" group="Everyone" prompt="Breadcrumb Text" alt="Not displayed for index pages. Page title by default."><!--%echo var="title" --></parameter>
+		<parameter name="layout" type="select" group="everyone" prompt="Layout" alt="Choose the layout of the page.">
+			<option value="full-width" selected="false">Full-width</option>
+			<option value="two-column" selected="true">Two-Column</option>
+		</parameter>
+		<parameter name="intro-text" type="radio" group="everyone" prompt="Intro Text" alt="Choose to display the intro text.">
+			<option value="on" selected="true">On</option>
+			<option value="off" selected="false">Off</option>
+		</parameter>
+	</ouc:properties>
+
+	<ouc:properties label="metadata">
+		<title><!--%echo var="title" --></title>
+		<meta name="Description" content="<!--%echo var="description" -->" />
+			<meta name="Keywords" content="<!--%echo var="keywords" -->" />
+				<meta name="Author" content="<!--%echo var="author" -->" />
+	</ouc:properties>
+
+	<ouc:div label="slider" group="Everyone" button-text="Image Slider" type="asset">
+		<ouc:editor wysiwyg="gallery"/>
+	</ouc:div>
+
+	<ouc:div label="banner-tall" group="Everyone" button-text="Page Specific Tall Banner" break="break"><ouc:editor csspath="/_resources/ou/editor/maincontent.css" cssmenu="/_resources/ou/editor/banner-interior-styles.txt" width="1200"/><img class="img-responsive" src="{{f:75848}}" alt="Sample Alt Text" width="1172" height="383" /></ouc:div>
+
+	<ouc:div label="banner-short" group="Everyone" button-text="Page Specific Short Banner" break="break"><ouc:editor csspath="/_resources/ou/editor/maincontent.css" cssmenu="/_resources/ou/editor/banner-interior-styles.txt" width="1200"/><img class="img-responsive" src="{{f:75847}}" alt="Sample Alt Text" width="1170" height="204" /></ouc:div>
+
+	<ouc:div label="intro-text" group="Everyone" button-text="Intro Text" break="break"><ouc:editor csspath="/_resources/ou/editor/maincontent.css" cssmenu="/_resources/ou/editor/styles.txt" width="1200"/><p class="lead">Intro Text</p></ouc:div>
+
+	<ouc:div label="maincontent" group="Everyone" button-text="Main Content" break="break">
+		<ouc:editor csspath="/_resources/ou/editor/maincontent.css" cssmenu="/_resources/ou/editor/styles.txt" width="1200"/>
+		Main Content for Intranet
+	</ouc:div>
+
+</document>

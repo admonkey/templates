@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcf>
+	<title>New Interior Section</title>
+	
+	<variable-list>
+		<!-- dirname and friendly name -->
+	    <include>_sectionvars.inc</include>
+		<variable name="layout" type="select" prompt="Layout" alt="Choose the layout of the page.">
+			<option value="full-width">Full Width</option>
+			<option value="two-column">Two Column</option>
+		</variable>
+		<!-- general page setup -->
+	    <include>_commonvars.inc</include>
+	</variable-list>
+	
+	<!-- Use this to specify a template group for the new section. -->
+	<!--
+	<directory-list> 
+		<parent name="current_folder" path="."> 
+			<directory name="new_folder" template-group="Department">{dirname}</directory> 
+		</parent> 
+	</directory-list>
+	-->
+	
+	<template-list>
+		<!-- props and navigation files -->
+	    <include>_sectiontemplates.inc</include>
+		<template 
+			prompt-prefix="Page" 
+			filename="index" 
+			display-filename="no" 
+			extension="pcf" 
+			destination="{directory/}{dirname}" 
+			force-destination="yes" 
+			preferred-redirect="yes">interior-{layout}.tmpl</template>
+	</template-list>
+</tcf>
